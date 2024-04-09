@@ -1,1 +1,17 @@
-<p>devices-list works!</p>
+<div>
+  <h1>Dispositivos</h1>
+
+  <div class="list-container" >
+    <mat-list *ngFor="let device of devices; trackBy: trackByFn">
+      <app-device-card [device]="device" />
+    </mat-list>
+  </div>
+
+  <div class="footer-container">
+    <button mat-fab extended>
+      <mat-icon>add</mat-icon>
+      Adicionar
+    </button>
+  </div>
+
+</div>
