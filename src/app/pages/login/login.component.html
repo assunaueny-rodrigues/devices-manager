@@ -1,0 +1,20 @@
+<div class="main-container">
+  <div class="form-container">
+    <form [formGroup]="formGroup">
+      <mat-form-field>
+        <mat-label>E-mail</mat-label>
+        <input matInput formControlName="email">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Senha</mat-label>
+        <input matInput formControlName="password">
+      </mat-form-field>
+
+      <div class="footer-container">
+        <button mat-flat-button (click)="login()">Entrar</button>
+      </div>
+    </form>
+  </div>
+</div>
+

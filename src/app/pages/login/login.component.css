@@ -1,0 +1,25 @@
+.main-container {
+  display: flex;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  justify-content: center;
+}
+
+.form-container {
+  width: 350px;
+  text-align: center;
+  background-color: rgb(201, 86, 255);
+  padding: 24px;
+  border-radius: 16px;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: end;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
