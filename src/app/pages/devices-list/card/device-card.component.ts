@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit, Output } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { EventEmitter } from '@angular/core';
 import { Device } from '../models/device.model';
 
 @Component({
@@ -13,8 +14,8 @@ import { Device } from '../models/device.model';
       <mat-card-content><b>Descrição:</b> {{ device.description }}</mat-card-content>
 
       <mat-card-actions align="end">
-        <button mat-button>EDITAR</button>
-        <button mat-button>EXCLUIR</button>
+        <button mat-button (click)="updateEvent.emit(device)">EDITAR</button>
+        <button mat-button (click)="deleteEvent.emit(device)">EXCLUIR</button>
       </mat-card-actions>
     </mat-card>
   `,
@@ -25,4 +26,10 @@ import { Device } from '../models/device.model';
 export class DeviceCardComponent {
   @Input({ required: true })
   device: Device;
+
+  @Output()
+  updateEvent: EventEmitter<Device> = new EventEmitter<Device>()
+
+  @Output()
+  deleteEvent: EventEmitter<Device> = new EventEmitter<Device>()
 }

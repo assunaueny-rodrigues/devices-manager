@@ -1,14 +1,20 @@
 <div>
   <h1>Dispositivos</h1>
 
-  <div class="list-container" >
-    <mat-list *ngFor="let device of devices; trackBy: trackByFn">
-      <app-device-card [device]="device" />
-    </mat-list>
+  <div *ngIf="devices$ | async as devices" class="list-container">
+    <ng-container *ngIf="devices.length > 0; else noRegisterDevices">
+      <mat-list *ngFor="let device of devices; trackBy: trackByFn">
+        <app-device-card [device]="device" (updateEvent)="openDeviceUpdate($event)" (deleteEvent)="deviceDelete($event)" />
+      </mat-list>
+    </ng-container>
+
+    <ng-template #noRegisterDevices>
+      <p>Nenhum dispositivo cadastrado...</p>
+    </ng-template>
   </div>
 
   <div class="footer-container">
-    <button mat-fab extended>
+    <button mat-fab extended (click)="openDeviceRegister()">
       <mat-icon>add</mat-icon>
       Adicionar
     </button>

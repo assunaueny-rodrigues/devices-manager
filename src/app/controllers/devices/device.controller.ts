@@ -31,7 +31,7 @@ export class DeviceController {
   updateDevice(device: Device): Observable<Device> {
     const currentDevicesList = this.getDevices();
 
-    const index = currentDevicesList.indexOf(device);
+    const index = currentDevicesList.findIndex(value => value.id === device.id);
     currentDevicesList[index] = device;
 
     this.setDevices(currentDevicesList);
@@ -42,7 +42,7 @@ export class DeviceController {
   deleteDevice(device: Device): Observable<Device> {
     const currentDevicesList = this.getDevices();
 
-    const index = currentDevicesList.indexOf(device);
+    const index = currentDevicesList.findIndex(value => value.id === device.id);
     currentDevicesList.splice(index, 1);
 
     this.setDevices(currentDevicesList);
