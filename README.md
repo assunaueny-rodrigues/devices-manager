@@ -36,3 +36,5 @@ Functionality Description:
 
     Delete device:
       Allows deleting a device
+
+Future improvements: Implement unit tests, create generic components, connect to a future API, prompt confirmation for deletion operations, etc.
